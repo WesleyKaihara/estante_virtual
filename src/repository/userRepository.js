@@ -1,13 +1,10 @@
 class UserRepository {
-    constructor({ data }) {
+    constructor(data) {
         this.data = data
     }
 
-    async find(itemId) {
-        const content = JSON.parse(await readFile(this.file))
-        if(!itemId) return content
-
-        return content.find(({ id }) => id === itemId)
+    async find(value, field) {
+        return this.data.find((user) => user[field] === value )
     }
 }
 
