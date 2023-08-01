@@ -1,15 +1,18 @@
 [
   {
+    "id": 1,
     "name": "Juscelino Fernandes",
     "email": "juscelino.junior@gmail.com",
     "password": "Juscelino321@"
   },
   {
+    "id": 2,
     "name": "Miguel Antonio",
     "email": "miguel.antonio@gmail.com",
     "password": "Miguel$123"
   },
   {
+    "id": 3,
     "name": "Lais Frigério",
     "email": "laisfrigerio@hotmail.com",
     "password": "Frigerio8080@"

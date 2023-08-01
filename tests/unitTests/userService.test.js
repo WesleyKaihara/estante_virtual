@@ -73,7 +73,7 @@ describe("UserService Suite Test", () => {
   });
 
   it("should not throw an exception when password is safe", async() => {
-    const userRepository = new UserRepository([]);
+    const userRepository = new UserRepository(mocks.USER_LIST);
     const userService = new UserService(userRepository, mocks.VALID_USER);
 
     expect(userService.isSafePassword()).be.true;
@@ -81,8 +81,7 @@ describe("UserService Suite Test", () => {
     try {
       await userService.save();
     } catch (error) {
-      console.log("error",error);
+      expect(await userService.save()).to.ok
     }
-
   });
 });

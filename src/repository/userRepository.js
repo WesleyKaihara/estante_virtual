@@ -4,7 +4,12 @@ class UserRepository {
     }
 
     async find(value, field) {
-        return this.data.find((user) => user[field] === value )
+        if(!this.data[0][field]) {
+            throw new Error(`Field ${field} is not found in users`)
+        }
+        const user = this.data.find((user) => user[field] === value )
+        delete user?.password
+        return user || {}
     }
 }
 
