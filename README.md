@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Virtual bookshelf (Estante Virtual)
-=======
 # Virtual bookshelf Estante Virtual
->>>>>>> 3fcd992 (Fixed tests and added userRepository Suite test)
 
 O sistema deve ser capaz de cadastrar os dados de um usuário para que ele possa ser acessado posteriormente pelo usuário. O sistema deve ser capaz de permitir o cadastro de livros, os livros podem ser separados por categorias, onde posso cadastrar um livro que estou lendo, que quero ler (lista de desejos) e dos livros que eu já concluí a leitura. É interessante que também tenha uma página de quem somos, para identificar o objetivo geral do site solicitado. Há, já estava me esquecendo, o sistema é de uso pessoal.
 
@@ -15,14 +11,11 @@ O sistema deve ser capaz de cadastrar os dados de um usuário para que ele possa
 - [x] should throw an exception when password is not strong enough
 - [x] should not throw an exception when password is safe
 
-<<<<<<< HEAD
-=======
 ### UserRepository
 - [x] should be return a user by id correctly
 - [x] should be return empty Array when user not found
 - [x] should throw an exception when fetching users with an invalid field
 
->>>>>>> 3fcd992 (Fixed tests and added userRepository Suite test)
 ### BookService
 - [x] should receive the start and end date of the reading if the reading status for 'Complete Reading'
 - [x] should throw an exception if dont't receive the start date of reading or don't receive the end date for the status 'Complete Reading'
