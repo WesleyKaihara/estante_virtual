@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test:dev": "npx mocha -w --parallel **/**/*.test.js",
-    "test": "npx mocha **/**/*.test.js"
+    "test": "npx mocha **/**/*.test.js",
+    "test:cov": "npx nyc npx mocha --parallel tests/unitTests/*.test.js"
   },
   "keywords": [],
   "author": "Wesley Kaihara",
@@ -13,6 +14,7 @@
   "devDependencies": {
     "chai": "^4.3.7",
     "chai-as-promised": "^7.1.1",
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0"
   }
 }

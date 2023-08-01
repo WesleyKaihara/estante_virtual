@@ -5,13 +5,14 @@ O sistema deve ser capaz de cadastrar os dados de um usuário para que ele possa
 ## Suite tests:
 
 ### Users
-- should't allow the registration of two users with the same email
-- should be allow only safe passwords
-- should receive email, full name and password information
+- should throw an exception if email, full name or password attributes are not provided
+- should throw an exception when attempting to register a user with an existing email
+- should throw an exception when attempting to register a user with an existing name
+- should throw an exception when password is not strong enough
+- should not throw an exception when password is safe
 
 ### Books
 - should be allow filters by category
 - should return the status of "Reading in progress", "Finished reading" and "Reading interest"
 - should receive the start and end date of the reading if the reading status for "Complete Reading"
 - should receive the start date of reading and should not receive the end date for the status "Reading in progress"
-

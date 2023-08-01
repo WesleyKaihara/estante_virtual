@@ -15,7 +15,7 @@ const mocks = {
   UNSAFE_PASSWORD: require("../mocks/user/user-with-unsafe-password.json"),
 };
 
-describe("Users Suite Test", () => {
+describe("UserService Suite Test", () => {
   it("should throw an exception if email, full name or password attributes are not provided", async () => {
     const userWithInvalidBody = mocks.INVALID_USER;
     const createUserServiceWithInvalidBody = () =>

@@ -4,9 +4,7 @@ class UserService {
     this.name = name
     this.email = email
     this.password = password
-    if (!this.validateBody()) {
-      throw new Error("Email, Full name, and Password are required");
-    }
+    this.validateBody()
   }
 
   isSafePassword() {
