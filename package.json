@@ -4,9 +4,11 @@
   "description": "O sistema deve ser capaz de cadastrar os dados de um usuário para que ele possa ser acessado posteriormente pelo usuário. O sistema deve ser capaz de permitir o cadastro de livros, os livros podem ser separados por categorias, onde posso cadastrar um livro que estou lendo, que quero ler (lista de desejos) e dos livros que eu já concluí a leitura. É interessante que também tenha uma página de quem somos, para identificar o objetivo geral do site solicitado. Há, já estava me esquecendo, o sistema é de uso pessoal.",
   "main": "index.js",
   "scripts": {
-    "test:dev": "npx mocha -w --parallel **/**/*.test.js",
+    "test-unit:dev": "npx mocha -w --parallel **/unitTests/*.test.js",
+    "test-e2e:dev": "npx mocha -w --parallel **/e2e/*.test.js",
     "test": "npx mocha **/**/*.test.js",
-    "test:cov": "npx nyc npx mocha --parallel tests/unitTests/*.test.js"
+    "test:cov": "npx nyc npx mocha --parallel tests/unitTests/*.test.js",
+    "dev": "node src/"
   },
   "keywords": [],
   "author": "Wesley Kaihara",
@@ -15,6 +17,10 @@
     "chai": "^4.3.7",
     "chai-as-promised": "^7.1.1",
     "mocha": "^10.2.0",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "superagent": "^8.0.9"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }

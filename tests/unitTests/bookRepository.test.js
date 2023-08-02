@@ -6,7 +6,7 @@ const mocks = {
   USERS_BOOKS_LIST: require("../mocks/book/book-list.json")
 }
 
-describe("BookRepository Suite Test" , () => {
+describe("#BookRepository Suite Test" , () => {
   it("should be return a filtered books by User correctly", async() => {
     const bookRepository = new BookRepository(mocks.USERS_BOOKS_LIST)
 

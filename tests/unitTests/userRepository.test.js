@@ -6,7 +6,7 @@ const mocks = {
   USERS_LIST: require("../mocks/user/user-list.json"),
 };
 
-describe("UserRepository Suite Test", () => {
+describe("#UserRepository Suite Test", () => {
   it("should be return a user by id correctly", async () => {
     const userRepository = new UserRepository(mocks.USERS_LIST);
 

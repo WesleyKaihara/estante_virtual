@@ -13,7 +13,7 @@ const mocks = {
   INVALID_INTEREST_READING: require("../mocks/book/invalid-in-progess-reading.json"),
 }
 
-describe("BooksService Suite Test",() => {
+describe("#BooksService Suite Test",() => {
   it("should receive the start and end date of the reading if the reading status for 'Complete Reading'", () => {
     const bookRepository = new BookRepository([])
     const createBookService = () => new BookService(bookRepository, mocks.VALID_COMPLETE_READING).validateBody()
