@@ -14,13 +14,19 @@ class UserService {
   }
 
   async avaibleEmail() {
-    const userExists = await this.userRepository.find(this.email,"email")
-    return !userExists.id
+    if(this.userRepository.length > 0) {
+      const userExists = await this.userRepository.find(this.email,"email")
+      return !userExists.id
+    }
+    return true
   }
 
   async avaibleName() {
-    const userExists = await this.userRepository.find(this.name,"name")
-    return !userExists.id
+    if(this.userRepository.length > 0) {
+      const userExists = await this.userRepository.find(this.name,"name")
+      return !userExists.id
+    }
+    return true
   }
   
   validateBody() {
