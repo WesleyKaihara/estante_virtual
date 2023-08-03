@@ -12,11 +12,14 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:8888/user/2
+PUT http://localhost:8888/user/5225fb4e-d0f0-483f-b270-456e401d3a4f
 Content-Type: application/json
 
 {
-  "name": "Vinicius Dias",
+  "name": "Vinicius Dias11",
   "email": "vinicius.dias@gmail.com",
   "password": "DiasVini321@"
 }
+
+### 
+DELETE http://localhost:8888/user/5225fb4e-d0f0-483f-b270-456e401d3a4f

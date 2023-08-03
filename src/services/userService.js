@@ -1,10 +1,10 @@
 class UserService {
-  constructor(userRepository, { name, email, password } ) {
+  constructor(userRepository, { id, name, email, password } ) {
     this.userRepository = userRepository
+    this.id = id || null
     this.name = name
     this.email = email
     this.password = password
-    this.validateBody()
   }
 
   isSafePassword() {
@@ -16,7 +16,7 @@ class UserService {
   async avaibleEmail() {
     if(this.userRepository.data.length > 0) {
       const userExists = await this.userRepository.find(this.email,"email")
-      return !userExists.id
+      return !userExists.email
     }
     return true
   }
@@ -24,7 +24,7 @@ class UserService {
   async avaibleName() {
     if(this.userRepository.data.length > 0) {
       const userExists = await this.userRepository.find(this.name,"name")
-      return !userExists.id
+      return !userExists.name
     }
     return true
   }
@@ -37,6 +37,7 @@ class UserService {
   }
 
   async save() {
+    this.validateBody()
     if (!this.isSafePassword()) {
       throw new Error("Password is not strong enough");
     }
@@ -57,19 +58,32 @@ class UserService {
   }
 
   async update() {
-    const isAvaibleEmail = await this.avaibleEmail()
+    this.validateBody()
+    const user = await this.userRepository.find(this.id, "id")
 
-    if(isAvaibleEmail) {
-      throw new Error(`User not Found!!`)
+    if(!user.id) {
+      throw new Error(`User with id "${this.id}" Not Found!!`)
     }
 
-    const { id, ...data } = await this.userRepository.find(this.email, "email")
-
-    const updatedUser = await this.userRepository.update(id,data);
+    const updatedUser = await this.userRepository.update(this.id, {
+      name: this.name,
+      email: user.email,
+      password: this.password
+    })
 
     return updatedUser
   }
 
+  async delete() {
+    const userExists = await this.userRepository.find(this.id, "id")
+
+    if(!userExists.id) {
+      throw new Error(`User with id "${this.id}" Not Found!!`)
+    }
+
+    this.userRepository.delete(this.id)
+    return
+  }
 }
 
 module.exports = UserService
