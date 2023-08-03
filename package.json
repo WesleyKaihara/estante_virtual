@@ -6,6 +6,7 @@
   "scripts": {
     "test-unit:dev": "npx mocha -w --parallel **/unitTests/*.test.js",
     "test-e2e:dev": "npx mocha -w --parallel **/e2e/*.test.js",
+    "test:dev": "npx mocha -w --parallel **/**/*.test.js",
     "test": "npx mocha -w --parallel **/**/*.test.js",
     "test:cov": "npx nyc npx mocha --parallel tests/**/*.test.js",
     "dev": "node src/"
