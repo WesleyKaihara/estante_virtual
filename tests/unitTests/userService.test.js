@@ -20,12 +20,16 @@ const mocks = {
 describe("#UserService Suite Test", () => {
   it("should throw an exception if email, full name or password attributes are not provided", async () => {
     const userWithInvalidBody = mocks.INVALID_USER;
-    const createUserServiceWithInvalidBody = () =>
-      new UserService([], userWithInvalidBody);
+    const userService = new UserService([], userWithInvalidBody);
 
-    expect(createUserServiceWithInvalidBody).to.throw(
-      "Name, Email, and Password are required"
-    );
+    try {
+      await userService.save();
+      expect("error").to.be.throw()
+    } catch (error) {
+      expect(error.message).to.equal(
+        "Name, Email, and Password are required"
+      );
+    }
   });
 
   it("should throw an exception when attempting to register a user with an existing email", async () => {
@@ -36,6 +40,7 @@ describe("#UserService Suite Test", () => {
   
     try {
       await userService.save();
+      expect("error").to.be.throw()
     } catch (error) {
       expect(error.message).to.equal(
         `Email "${userWithRepeatedEmail.email}" is not avaible`
@@ -82,7 +87,7 @@ describe("#UserService Suite Test", () => {
       await userService.update();
       expect(userService).to.be(new Error(""))
     } catch (error) {
-      expect(error.message).to.equal("User not Found!!");
+      expect(error.message).to.equal(`User with id "${newUser.id}" Not Found!!`);
     }
   });
 
@@ -94,10 +99,10 @@ describe("#UserService Suite Test", () => {
       
     try {
       const updatedUser = await userService.update();
-      expect(updatedUser).to.deep.equal({ 
-          id: 2, 
-          name: 'Miguel Antonio', 
-          email: 'miguel.antonio@gmail.com' 
+      expect(updatedUser).to.deep.equal({
+        id: 'eda4b2f6-993c-46db-9ac9-0ef052874473',
+        name: 'Miguel Antonio',
+        email: 'miguel.antonio@gmail.com'
       })
     } catch (error) {
       expect(error.message).to.equal("");

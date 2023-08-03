@@ -65,7 +65,7 @@ class UserService {
       throw new Error(`User with id "${this.id}" Not Found!!`)
     }
 
-    const updatedUser = await this.userRepository.update(this.id, {
+    const { password, ...updatedUser} = await this.userRepository.update(this.id, {
       name: this.name,
       email: user.email,
       password: this.password

@@ -1,18 +1,18 @@
 [
   {
-    "id": 1,
+    "id": "a87cd144-3550-4ca0-a14a-f7f53d52a290",
     "name": "Juscelino Fernandes",
     "email": "juscelino.junior@gmail.com",
     "password": "Juscelino321@"
   },
   {
-    "id": 2,
+    "id": "eda4b2f6-993c-46db-9ac9-0ef052874473",
     "name": "Miguel Antonio",
     "email": "miguel.antonio@gmail.com",
     "password": "Miguel$123"
   },
   {
-    "id": 3,
+    "id": "47882db8-90a4-404e-ae98-fd0989597b52",
     "name": "Lais Frigério",
     "email": "laisfrigerio@hotmail.com",
     "password": "Frigerio8080@"

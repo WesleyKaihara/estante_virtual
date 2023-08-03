@@ -12,7 +12,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:8888/user/5225fb4e-d0f0-483f-b270-456e401d3a4f
+PUT http://localhost:8888/user/b64aebc8-9a27-4e32-bcb6-52c9335fdc53
 Content-Type: application/json
 
 {
@@ -22,4 +22,4 @@ Content-Type: application/json
 }
 
 ### 
-DELETE http://localhost:8888/user/5225fb4e-d0f0-483f-b270-456e401d3a4f
+DELETE http://localhost:8888/user/b64aebc8-9a27-4e32-bcb6-52c9335fdc53
