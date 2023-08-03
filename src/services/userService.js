@@ -14,7 +14,7 @@ class UserService {
   }
 
   async avaibleEmail() {
-    if(this.userRepository.length > 0) {
+    if(this.userRepository.data.length > 0) {
       const userExists = await this.userRepository.find(this.email,"email")
       return !userExists.id
     }
@@ -22,7 +22,7 @@ class UserService {
   }
 
   async avaibleName() {
-    if(this.userRepository.length > 0) {
+    if(this.userRepository.data.length > 0) {
       const userExists = await this.userRepository.find(this.name,"name")
       return !userExists.id
     }

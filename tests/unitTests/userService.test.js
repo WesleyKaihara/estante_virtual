@@ -56,6 +56,20 @@ describe("#UserService Suite Test", () => {
     }
   });
 
+  it("should't throw an exception when userRespository is Empty", async () => {
+    const userRepository = new UserRepository([]);
+    const firstUser = mocks.VALID_USER;
+  
+    const userService = new UserService(userRepository, firstUser);
+  
+    try {
+      const user = await userService.save();
+      expect(user).to.be.ok
+    } catch (error) {
+      expect(error).to.empty();
+    }
+  });
+
   it("should throw an exception when password is not strong enough", async () => {
     const userUnsafePassword = mocks.UNSAFE_PASSWORD;
   
