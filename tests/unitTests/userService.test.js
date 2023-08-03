@@ -8,7 +8,9 @@ const UserRepository = require("../../src/repository/userRepository");
 
 const mocks = {
   VALID_USER: require("../mocks/user/valid-user.json"),
+  NEW_USER: require("../mocks/user/new-user-valid-body.json"),
   INVALID_USER: require("../mocks/user/invalid-user-body.json"),
+  UPDATE_USER: require("../mocks/user/update-user-valid-body.json"),
   USER_LIST: require("../mocks/user/user-list.json"),
   USER_WITH_REPETED_NAME: require("../mocks/user/repeted-user-name.json"),
   USER_WITH_REPETED_EMAIL: require("../mocks/user/repeted-user-email.json"),
@@ -67,6 +69,39 @@ describe("#UserService Suite Test", () => {
       expect(user).to.be.ok
     } catch (error) {
       expect(error).to.empty();
+    }
+  });
+
+  it("should be throw error when try updated an not existing user", async () => {
+    const userRepository = new UserRepository(mocks.USER_LIST);
+    const newUser = mocks.NEW_USER;
+
+    const userService = new UserService(userRepository, newUser);
+      
+    try {
+      await userService.update();
+      expect(userService).to.be(new Error(""))
+    } catch (error) {
+      expect(error.message).to.equal("User not Found!!");
+    }
+  });
+
+  it("should't be throw error when try updated an existing user", async () => {
+    const userRepository = new UserRepository(mocks.USER_LIST);
+    const validUser = mocks.UPDATE_USER;
+
+    const userService = new UserService(userRepository, validUser);
+      
+    try {
+      const updatedUser = await userService.update();
+      console.log(updatedUser);
+      expect(updatedUser).to.deep.equal({ 
+          id: 2, 
+          name: 'Miguel Antonio', 
+          email: 'miguel.antonio@gmail.com' 
+      })
+    } catch (error) {
+      expect(error.message).to.equal("");
     }
   });
 

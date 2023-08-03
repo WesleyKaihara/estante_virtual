@@ -53,6 +53,20 @@ class UserService {
     }
   }
 
+  async update() {
+    const isAvaibleEmail = await this.avaibleEmail()
+
+    if(isAvaibleEmail) {
+      throw new Error(`User not Found!!`)
+    }
+
+    const { id, ...data } = await this.userRepository.find(this.email, "email")
+
+    const updatedUser = await this.userRepository.update(id,data);
+
+    return updatedUser
+  }
+
 }
 
 module.exports = UserService
