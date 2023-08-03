@@ -3,6 +3,12 @@ class UserRepository {
     this.data = data;
   }
 
+  save(userData) {
+    this.data.push(userData)
+    const { password, ...user } = userData
+    return user;
+  }
+
   async find(value, field) {
     if (!this.data[0][field]) {
       throw new Error(`Field ${field} is not found in users`);
@@ -10,6 +16,14 @@ class UserRepository {
     const user = this.data.find((user) => user[field] === value);
     delete user?.password;
     return user || {};
+  }
+
+  async findMany() {
+    const data = await this.data.map(user => {
+      const {password, ...userData } = user;
+      return userData
+    })
+    return data;
   }
 
   async update(id, newData) {

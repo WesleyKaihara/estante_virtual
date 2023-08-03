@@ -1,3 +1,6 @@
+GET http://localhost:8888/users
+
+###
 POST http://localhost:8888/user
 Content-Type: application/json
 
@@ -5,4 +8,15 @@ Content-Type: application/json
   "name": "Vinicius Dias",
   "email": "vinicius.dias@gmail.com",
   "password": "Vinicius321@"
+}
+
+###
+
+PUT http://localhost:8888/user/2
+Content-Type: application/json
+
+{
+  "name": "Vinicius Dias",
+  "email": "vinicius.dias@gmail.com",
+  "password": "DiasVini321@"
 }

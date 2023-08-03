@@ -11,9 +11,7 @@ const createServer = (port) => {
     res.json({message: "Hello World"})
   })
 
-  return app.listen(port , () => {
-    console.log(`Application running on port ${port}`)
-  })
+  return app.listen(port)
 
 }
 

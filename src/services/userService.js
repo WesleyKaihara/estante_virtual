@@ -47,10 +47,13 @@ class UserService {
     const isAvaibleName = await this.avaibleName()
     if(!isAvaibleName) throw new Error(`Name "${this.name}" is not avaible`)
 
-    return {
+    const newUser = this.userRepository.save({
       name: this.name,
-      email: this.email
-    }
+      email: this.email,
+      password: this.password,
+    });
+    
+    return newUser;
   }
 
   async update() {

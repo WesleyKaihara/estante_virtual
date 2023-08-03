@@ -94,7 +94,6 @@ describe("#UserService Suite Test", () => {
       
     try {
       const updatedUser = await userService.update();
-      console.log(updatedUser);
       expect(updatedUser).to.deep.equal({ 
           id: 2, 
           name: 'Miguel Antonio', 

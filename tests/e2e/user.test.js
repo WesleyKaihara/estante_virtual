@@ -21,7 +21,7 @@ describe("#User Routes", () => {
     const response = supertest(app)
       .get("/users")
       .expect(200)
-      .expect({ message: "GET User"}, done)
+      .expect([], done)
   })
 
   it("should be return status 200 user body is Valid" , (done) => {
@@ -35,8 +35,7 @@ describe("#User Routes", () => {
       .expect(200)
       .expect({
         "name": "Vinicius Dias",
-        "email": "vinicius.dias@gmail.com",
-        "password": "Vinicius321@"
+        "email": "vinicius.dias@gmail.com"
       }, done)
   })
 
