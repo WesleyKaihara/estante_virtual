@@ -2,6 +2,7 @@ const readingStatus = {
   1: {
     title: "COMPLETED",
     fields: [
+      "id",
       "user",
       "title",
       "status",

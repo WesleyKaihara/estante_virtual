@@ -5,6 +5,10 @@ const supertest = require('supertest');
 
 const server = require("../../src/server");
 
+// const mocks = {
+//   UPDATE_USER: require("../mocks/user/update-user-valid-body.json"),
+// }
+
 describe("#User Routes", () => {
   let app;
 
@@ -66,6 +70,17 @@ describe("#User Routes", () => {
       }, done)
   })
 
-  
+  // it("should be return status 200 when update user" , (done) => {
+  //   const {id, ...data } = mocks.UPDATE_USER;
+  //   console.log(data);
+
+  //   supertest(app)
+  //     .put(`/user/${id}`)
+  //     .send(data)
+  //     .set('Content-Type', 'application/json')
+  //     .expect(400)
+  //     .expect([], done)
+
+  // })
 
 })

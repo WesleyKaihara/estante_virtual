@@ -1,0 +1,30 @@
+GET http://localhost:8888/books
+
+###
+POST http://localhost:8888/book
+Content-Type: application/json
+
+{
+  "user": "1",
+  "title": "Clean Code",
+  "startDateReading": "2022-01-01",
+  "endDateReading": "2022-05-20",
+  "status": 1
+}
+
+###
+
+PUT http://localhost:8888/book/ecef7910-299b-4432-adf4-51afca517cf2
+Content-Type: application/json
+
+{
+  "user": "1",
+  "title": "Clean Code Updated",
+  "startDateReading": "2022-01-01",
+  "endDateReading": "2022-05-20",
+  "status": 1
+}
+
+
+### 
+DELETE http://localhost:8888/book/08693ec3-6f21-403a-9b9b-f6a620c03b7c
