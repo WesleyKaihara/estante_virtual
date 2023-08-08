@@ -18,7 +18,7 @@ describe("#User Routes", () => {
   let userRepositoryStub;
 
   before((done) => {
-    app = server(3001);
+    app = server(3002);
     app.once("listening", done);
     userRepositoryStub = sandbox.stub(UserRepository.prototype, 'findMany').value([
       {

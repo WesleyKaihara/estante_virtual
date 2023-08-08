@@ -37,8 +37,10 @@ class BookRepository {
   }
 
   delete(id) {
+    if(this.data.length === 0) return
+
     this.data.find((book, idx) => {
-      if (book.id === id) {
+      if (book?.id === id) {
         this.data.splice(idx, 1)
       }
     });
