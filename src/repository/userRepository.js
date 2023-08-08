@@ -11,7 +11,7 @@ class UserRepository {
   }
 
   async find(value, field) {
-    if(this.data.length === 0) return {}
+    if(this.data.length === 0 ) return {}
 
     if (!this.data[0][field]) {
       throw new Error(`Field ${field} is not found in users`);

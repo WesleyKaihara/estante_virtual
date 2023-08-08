@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">56.52% </span>
+                <span class="strong">91.3% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/23</span>
+                <span class='fraction'>21/23</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">56.52% </span>
+                <span class="strong">91.3% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/23</span>
+                <span class='fraction'>21/23</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -108,8 +108,8 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -123,33 +123,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const userRepository = new (require("../repository/userRepository"))([]);
 &nbsp;
 const UserService = require('../services/userService');
 &nbsp;
-exports.getUser = async(req,res) =&gt; {
-  const users = await userRepository.findMany()
-  res.json(users)
+exports.getUser = <span class="fstat-no" title="function not covered" >as</span>ync(req,res) =&gt; {
+  const users = <span class="cstat-no" title="statement not covered" >await userRepository.findMany()</span>
+<span class="cstat-no" title="statement not covered" >  res.json(users)</span>
 }
 &nbsp;
 exports.createUser = async(req,res) =&gt; {
@@ -162,26 +162,26 @@ exports.createUser = async(req,res) =&gt; {
   }
 }
 &nbsp;
-exports.updateUser = <span class="fstat-no" title="function not covered" >as</span>ync(req,res) =&gt; {
-<span class="cstat-no" title="statement not covered" >  try {</span>
-    const user = <span class="cstat-no" title="statement not covered" >new UserService(userRepository, {</span>
+exports.updateUser = async(req,res) =&gt; {
+  try {
+    const user = new UserService(userRepository, {
       id: req.params.id,
       ...req.body
     })
-    const updatedUser = <span class="cstat-no" title="statement not covered" >await user.update()</span>
-<span class="cstat-no" title="statement not covered" >    return res.json(updatedUser)</span>
+    const updatedUser = await user.update()
+    return res.json(updatedUser)
   } catch (error) {
-<span class="cstat-no" title="statement not covered" >    return res.status(400).json({ message: error.message })</span>
+    return res.status(400).json({ message: error.message })
   }
 }
 &nbsp;
-exports.deleteUser = <span class="fstat-no" title="function not covered" >as</span>ync(req,res) =&gt; {
-<span class="cstat-no" title="statement not covered" >  try {</span>
-    const user = <span class="cstat-no" title="statement not covered" >new UserService(userRepository, { id: req.params.id })  </span>
-<span class="cstat-no" title="statement not covered" >    await user.delete()</span>
-<span class="cstat-no" title="statement not covered" >    res.json({ message: `User with id ${req.params.id} deleted!!`})</span>
+exports.deleteUser = async(req,res) =&gt; {
+  try {
+    const user = new UserService(userRepository, { id: req.params.id })  
+    await user.delete()
+    res.json({ message: `User with id ${req.params.id} deleted!!`})
   } catch (error) {
-<span class="cstat-no" title="statement not covered" >    res.status(400).json({ message: error.message })</span>
+    res.status(400).json({ message: error.message })
   }
 }</pre></td></tr></table></pre>
 
@@ -190,7 +190,7 @@ exports.deleteUser = <span class="fstat-no" title="function not covered" >as</sp
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-08-03T22:16:19.868Z
+                at 2023-08-08T02:19:14.767Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

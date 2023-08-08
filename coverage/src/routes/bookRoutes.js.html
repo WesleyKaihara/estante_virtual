@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/routes/userRoutes.js</title>
+    <title>Code coverage report for src/routes/bookRoutes.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/routes</a> userRoutes.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/routes</a> bookRoutes.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -83,12 +83,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">const express =  require("express");
 const router = express.Router()
-const userController = require("../controller/userController");
+const bookController = require("../controller/bookController");
 &nbsp;
-router.get("/users", userController.getUser)
-router.post("/user", userController.createUser)
-router.put("/user/:id", userController.updateUser)
-router.delete("/user/:id", userController.deleteUser)
+router.get("/books", bookController.getBooks)
+router.post("/book", bookController.createBook)
+router.put("/book/:id", bookController.updateBook)
+router.delete("/book/:id", bookController.deleteBook)
 &nbsp;
 module.exports = router</pre></td></tr></table></pre>
 
