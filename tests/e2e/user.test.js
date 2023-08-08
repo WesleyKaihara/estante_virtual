@@ -15,12 +15,12 @@ const mocks = {
 
 describe("#User Routes", () => {
   let app;
-  let userRepositoryStub;
 
   before((done) => {
     app = server(3002);
     app.once("listening", done);
-    userRepositoryStub = sandbox.stub(UserRepository.prototype, 'findMany').value([
+
+    sandbox.stub(UserRepository.prototype, 'findMany').value([
       {
         "id": "a87cd144-3550-4ca0-a14a-f7f53d52a290",
         "name": "Juscelino Fernandes",
@@ -48,7 +48,7 @@ describe("#User Routes", () => {
   });
   
   it("should be return status 200 in base url" , (done) => {
-    const response = supertest(app)
+    supertest(app)
       .get("/users")
       .expect(200)
       .expect([
@@ -70,11 +70,18 @@ describe("#User Routes", () => {
           "email": "laisfrigerio@hotmail.com",
           "password": "Frigerio8080@"
         }
-      ], done())
+      ],done())
+  })
+
+  it("should be return status 200 in base url with stub" , (done) => {
+    const response = supertest(app)
+      .get("/users")
+      .expect(200)
+      .expect([], done)
   })
 
   it("should be return status 200 user body is Valid" , (done) => {
-    const response = supertest(app)
+    supertest(app)
       .post("/user")
       .send({
         name: "Vinicius Dias",
